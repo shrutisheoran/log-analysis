@@ -3,6 +3,8 @@ from datetime import date
 import psycopg2
 
 # This function tells 3 most popular articles of all time.
+
+
 def popular_articles():
     conn = psycopg2.connect("dbname=news")
     cursor = conn.cursor()
@@ -14,12 +16,15 @@ order by num desc; ")
     f = open("popular_articles.txt", "a")
     for el in result:
         formatted_output = str(el[0]) + ' -- ' + str(el[1]) + ' views\n'
-        f.write(str(formatted_output)) # Writing to popular_articles.txt file.
+        f.write(str(formatted_output))  # Writing to popular_articles.txt file.
 
     f.close()
     conn.close()
 
+
 # This function tells most popular article author of all time.
+
+
 def popular_authors():
     conn = psycopg2.connect("dbname = news")
     cursor = conn.cursor()
@@ -31,12 +36,14 @@ by num desc limit 3; ")
     f = open("popular_authors.txt", "a")
     for el in result:
         formatted_output = str(el[0]) + ' -- ' + str(el[1]) + ' views\n'
-        f.write(str(formatted_output)) # Writing to popular_authors.txt file.
+        f.write(str(formatted_output))  # Writing to popular_authors.txt file.
 
     f.close()
     conn.close()
 
 # This function tells on which day more than 1% of requests lead to errors.
+
+
 def request_error():
     conn = psycopg2.connect("dbname = news")
     cursor = conn.cursor()
@@ -51,7 +58,7 @@ def request_error():
     for el in result:
         formatted_output = str(el[0]) + ' -- ' + str(round(el[1], 2)) +\
             '% errors\n'
-        f.write(str(formatted_output)) # Writing to status.txt file.
+        f.write(str(formatted_output))  # Writing to status.txt file.
 
     f.close()
     conn.close()
