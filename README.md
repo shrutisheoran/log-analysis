@@ -27,6 +27,9 @@
 
 **_Run Log Analysis_**
 ---
+1. **Clone or download the zip file of the repository.**
+1. **Extract the files in a folder.**
+1. **Open git bash in the folder.**
 1. **Now to obtain the analysis run `python3 reporting_tool.py` or `.\reporting_tool.py`.**
 1. **Open the following text files to see the output.**
 * `popular_articles.txt`
